@@ -1,0 +1,17 @@
+{
+  "name": "node_server_v2",
+  "version": "1.0.0",
+  "description": "node server v2 ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "npm",
+    "mysql2",
+    "sequelize"
+  ],
+  "author": "ibsanju",
+  "license": "MIT"
+}
