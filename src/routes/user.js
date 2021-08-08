@@ -5,6 +5,7 @@ const router = Router()
 
 // Routes go here
 router.get('/:id', user.getUser)
+// http://localhost:3301/user/2
 
 router.post('/createUser', user.createUser)
 
