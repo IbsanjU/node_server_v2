@@ -11,13 +11,14 @@ const morgan = require('morgan')
 const fs = require('fs')
 const path = require('path')
 const routes = require('./routes')
+const { isAuthenticated } = require('./utils/isAuthenticated')
 
 app.use(helmet())
 app.use(morgan('combined'))
 app.use(express.json({ limit: '50mb' }))
 app.use(express.urlencoded({ extended: true, limit: '50mb' }))
 
-app.use('/user', routes.user)
+app.use('/user', isAuthenticated, routes.user)
 
 app.use((req, res) => {
   res.status(404).send('404 : Page not found')
