@@ -9,4 +9,6 @@ router.get('/:id', user.getUser)
 
 router.post('/createUser', user.createUser)
 
+router.post('/deleteUser', user.deleteUser);
+
 module.exports = router
