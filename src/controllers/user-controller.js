@@ -70,3 +70,28 @@ exports.deleteUser = async (req, res) => {
     return res.status(500).send({ message: `Error: ${err.message}` })
   }
 }
+
+exports.updateUser = async (req, res) => {
+  const { username, password } = req.body
+  const { id } = req.params
+
+  const user = await User.findOne({ where: { id } })
+
+  if (!user) {
+    return res.status(400).send({ message: `No user found with the id ${id}` })
+  }
+
+  try {
+    if (username) {
+      user.username = username
+    }
+    if (password) {
+      user.password = password
+    }
+
+    user.save()
+    return res.send({ message: `User ${id} has been updated!` })
+  } catch (err) {
+    return res.status(500).send({ message: `Error: ${err.message}` })
+  }
+}
